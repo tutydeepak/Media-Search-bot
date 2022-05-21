@@ -288,11 +288,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('Update Channel', url='https://t.me/subin_works'),
+                    InlineKeyboardButton('Update Channel', url='https://t.me/Anonymous_Moviez1'),
                     InlineKeyboardButton('Source Code', url='https://github.com/subinps/Media-Search-bot')
                 ]
                 ]
-            await query.message.edit(text="Source Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/subin_works'>XTZ Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text="Source Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/Anonymous_Moviez1'>Anonymous Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
 
@@ -313,8 +313,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('More Bots', url='https://t.me/subin_works/122'),
-                        InlineKeyboardButton('Update Channel', url='https://t.me/subin_works')
+                        InlineKeyboardButton('More Bots', url='https://t.me/Anonymous_Moviez1/2351'),
+                        InlineKeyboardButton('Update Channel', url='https://t.me/Anonymous_Moviez1')
                     ]
                     ]
                 
@@ -345,8 +345,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('More Bots', url='https://t.me/subin_works/122'),
-                        InlineKeyboardButton('Update Channel', url='https://t.me/subin_works')
+                        InlineKeyboardButton('More Bots', url='https://t.me/Anonymous_Moviez1/2351'),
+                        InlineKeyboardButton('Update Channel', url='https://t.me/Anonymous_Moviez1')
                     ]
                     ]
                 
@@ -369,4 +369,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.delete()
                 
     else:
-        await query.answer("കൌതുകും ലേശം കൂടുതൽ ആണല്ലേ👀",show_alert=True)
+        await query.answer("இன்னும் கொஞ்சம் வேடிக்கையாக இருக்கிறதல்லவா? 👀",show_alert=True)
