@@ -67,7 +67,7 @@ async def start(bot, cmd):
                 buttons = [
                     [
                         InlineKeyboardButton('Search again', switch_inline_query_current_chat=''),
-                        InlineKeyboardButton('More Bots', url='https://t.me/subin_works/122')
+                        InlineKeyboardButton('More Bots', url='https://t.me/Anonymous_Moviez1/2351')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -100,7 +100,7 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("Other Bots", url="https://t.me/subin_works/122")
+                        InlineKeyboardButton("Other Bots", url="https://t.me/Anonymous_Moviez1/2351")
                     ],
                     [
                         InlineKeyboardButton("About", callback_data="about")
@@ -150,6 +150,33 @@ async def total(bot, message):
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
+        
+        
+@Client.on_message(filters.private & filters.command('send'))
+async def send_text(bot, m: Message):
+    id = m.from_user.id
+    if id not in Config.AUTH_USERS:
+        return
+    if (" " not in m.text) and ("send" in m.text) and (m.reply_to_message is not None):
+        query = await query_msg()
+        for row in query:
+            chat_id = int(row[0])
+            try:
+                await bot.copy_message(
+                    chat_id=chat_id,
+                    from_chat_id=m.chat.id,
+                    message_id=m.reply_to_message.message_id,
+                    caption=m.reply_to_message.caption,
+                    reply_markup=m.reply_to_message.reply_markup
+                )
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+            except Exception:
+                pass
+    else:
+        msg = await m.reply_text(Presets.REPLY_ERROR, m.message_id)
+        await asyncio.sleep(8)
+        await msg.delete()
 
 
 @Client.on_message(filters.command('logger') & filters.user(ADMINS))
@@ -192,8 +219,8 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/subin_works'),
+            InlineKeyboardButton('Update Channel', url='https://t.me/Anonymous_Moviez1'),
             InlineKeyboardButton('Source Code', url='https://github.com/subinps/Media-Search-bot')
         ]
         ]
-    await message.reply(text="Language : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/subin_works'>XTZ Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="Language : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/Anonymous_Moviez1'>Anonymous Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
